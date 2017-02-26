@@ -1,0 +1,16 @@
+<% include ./partials/header %>
+<div class="main-panel">
+
+  <h1 class="text-center">Tech Interview Exercises</h1>
+  <p class="info">
+    Here you can find collection of questions and tasks you might be given on interview. Click on a category below, and you will see random question or assingment from respective category. Take few moments to think about it, and when you think you've got it - press "Show Solution" to verify your answer. Sounds good?
+  </p>
+  <h2 class="text-center">LETS BEGIN!</h2>
+  <div class="text-center">
+  <% categories.forEach(function(field){ %>
+    <a href="/questions/<%= field %>"><button class=""> <%= field %> </button></a>
+  <%})%>
+  </div>
+</div>
+
+<% include ./partials/footer %>

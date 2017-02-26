@@ -1,0 +1,69 @@
+<% include ./partials/header %>
+<div class="main-panel">
+<h1 id = "question" class="text-center"><%= doc.title %></h1>
+<h2 class="text-center">The Task</h2><hr>
+<p class="info"><%= doc.question %></p>
+<p style="padding: 5px"></p>
+<div class = "text-center"><button id="showAnswer" class="button">Show Solution</button></div>  
+  
+<div id="answer" class="hidden">
+    <h2>Answer:</h2>
+    <p class="info"><%= doc.answer %></p>
+    
+    <% if (doc.code){ %>
+      <h3>Here is the code:</h3>
+      <div class="codePanel">
+        <% var lookup = {"html5": "markup", "css3": "css", "javascript":"javascript"} %>
+        <pre> <code class="language-<%=lookup[field]%>" ><%- doc.code %></code></pre>
+      </div>
+    <%}%>
+ 
+</div>
+  <p style="padding: 5px"></p>
+<div class="text-center">
+  <button id = "next" class="button" style="float: right">Next</button>
+  
+  <button id = "prev" class="button" style="float: left">Prev</button>
+</div>
+  
+</div>
+  
+
+<script>
+"use strict";
+  let showAnswer = document.getElementById("showAnswer");
+  let answer = document.getElementById("answer");
+  
+  // Shows / hides answer on click 
+  
+  showAnswer.addEventListener("click", function(e){
+    // toggle hidden class 
+    answer.classList.toggle("hidden");
+    // toggles button text
+    var btnText;
+    showAnswer.innerHTML == "Show Solution" ? btnText = "Hide Solution" : btnText = "Show Solution";
+    showAnswer.innerHTML = btnText;
+  });
+  
+  // event handlers for next and prev
+  
+  let next = document.getElementById("next");
+  next.addEventListener("click", function(e){
+    e.preventDefault();
+    location.href = "/questions/<%=field%>";
+    
+  });
+  
+  let prev = document.getElementById("prev");
+  prev.addEventListener("click", function(e){
+    e.preventDefault();
+    history.back(-1);
+    
+  });
+  
+  
+</script>
+
+
+
+<% include ./partials/footer %>
