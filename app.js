@@ -25,7 +25,6 @@ app.use(bodyParser.json());
 app.use(helmet());
 
 // set db connection
-
 mongo.connect(DATABASE, (err, db) => {
   if (err) {
     console.log(`Database error: ${err}`);
@@ -37,7 +36,7 @@ mongo.connect(DATABASE, (err, db) => {
   
   // Attach routes
   routes(app, db);
-  
-  
+
+  // start server up
   app.listen(PORT, console.log(`Server listening on port ${PORT}`));
 });
