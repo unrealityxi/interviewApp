@@ -1,16 +1,9 @@
 <div class="navbar nomargin color-white text-center">
 	<div class="inline-block hide-on-mobile" style="float: left; min-width: 300px">
-		<a href="#" class="bold" ripple>Tech Interview</a>
+		<a href="/" class="logo" ripple>Tech Interview</a>
 	</div>
   
-    <div class="inline-block text-center" style="width: 300px">
-      <% categories.forEach(function(category){ %>
-        
-        <a href="/questions/<%= category %>" <% if( category == field){ %> class="current" <%}%>> <%= category %></a>
-      <%})%>
-    </div>
-  
-	<div class="inline-block" style="float:right; min-width:300px">
+	<div class="inline-block navlinks">
 		<a href="/" <% if (title === 'Interview Questions') { %>class="current" <% } %>>Home</a>
 		<a href="/about" <% if (title === 'About') { %> class="current" <% } %> >About</a>
 		<a href="/contact" <% if (title === 'Contact') { %> class="current" <% } %> >Contact</a>

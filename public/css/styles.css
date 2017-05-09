@@ -2,7 +2,7 @@
 
 body {
   font-family: RobotoDraft, Roboto, Arial, sans-serif;
-  background-image: url("../img/bckgr2.jpg");
+  background-color: #1E1F21;
   margin: 0;
   color: #d6d6da;
 }
@@ -30,6 +30,13 @@ button {
 	text-decoration:none;
     transition: all 0.1s;
 }
+
+#showAnswer {
+  padding: 0 5px;
+  font-size: 0.8rem;
+  margin-left: 5px;
+}
+
 button:hover {
 	background-color:#47484C;
 }
@@ -58,7 +65,7 @@ h3{
 	line-height: 3.125em;
 	height: 3.125em;
 	text-transform: uppercase;
-    background: #3B3F42;
+  background: #3B3F42;
 }
 .navbar li {
 	margin: 0;
@@ -74,11 +81,63 @@ h3{
 	transition: all 0.1s;
 }
 
+.sidebar {
+  position: fixed;
+  top:0;
+  display: inline-block;
+  background: #47484C;
+  width: 215px;
+  height: 100vh;
+  vertical-align: top;
+}
+
+.sidebar-wrap {
+  display: inline-block;
+  width: 215px;
+  vertical-align: top;
+}
+
+.navlinks {
+  float: right;
+  min-width: 300px;
+}
+
+.sidebar a {
+	display: block;
+	color: white;
+	text-decoration: none;
+	line-height: 3.125em;
+	padding: 0 1em;
+	transition: all 0.1s;
+  text-transform: uppercase;
+}
+
+.panel-wrap {
+  display: inline-block;
+  width: 80%;
+}
+.main-panel {
+  padding-top: 8vh;
+  width: 750px;
+  margin: auto;
+  transition: all 0.2s ease;
+  vertical-align: top;
+  background-color: #1E1F21;
+}
+
+p {
+  width: 750px;
+
+}
+
 .answer {
   border-top: 1px solid rgba(100, 100, 100, 0.5);
   margin-top: 30px;
 }
 
+.logo {
+  background-color: #3B3F42;
+}
 .inline-block {
   display: inline-block;
 }
@@ -171,21 +230,6 @@ a:active {
   color: #96969a;
 }
 
-
-.main-panel {
-  max-width: 750px;
-  min-height: 80vh;
-  padding-top: 8vh;
-  padding-left: 20px;
-  padding-right: 20px;
-  margin: 0;
-  margin-left: auto;
-  margin-right: auto;
-  border-radius: 20px;
-  border-top: none;
-  transition: all 0.2s ease;
-}
-
 .footer {
   height: 10vh;
   background: #47484C;
@@ -204,8 +248,12 @@ code {
   color: #cf3333;
 }
 
-@media only screen and (max-width: 1000px) {
+@media only screen and (max-width: 1100px) {
   .main-panel {
+    width: 100%;
+    margin-left: auto;
+  }
+  .panel-wrap {
     width: 100%;
   }
   .hide-on-mobile {
@@ -214,5 +262,11 @@ code {
   .current {
 
     border-bottom: 1px solid white;
+  }
+  p, .info {
+    max-width: 80%;
+  }
+  .navlinks {
+    float: none;
   }
 }

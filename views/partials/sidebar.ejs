@@ -1,0 +1,11 @@
+
+<div class="sidebar-wrap hide-on-mobile">
+  <div class="sidebar">
+      <a href="/" class="logo">Tech Interview</a>
+        <% categories.forEach(function(category){ %>
+          
+          <a href="/questions/<%= category %>" <% if( category == field){ %> class="current" <%}%>> <%= category %></a>
+        <%})%>
+  </div>
+</div>
+

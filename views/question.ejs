@@ -1,10 +1,10 @@
 <% include ./partials/header %>
-<div class="main-panel">
-<h1 id = "question"><%= doc.title %></h1>
-<h2>The Task</h2>
-<p class="info"><%- doc.question %></p>
+
+<h1 id = "question" class="text-center"><%= doc.title %></h1>
+<h2 class="text-center">The Task:</h2><hr>
+<p class="info"><%- doc.question %><button id="showAnswer" class="button">Show Solution</button></p>
 <p style="padding: 5px"></p>
-<button id="showAnswer" class="button">Show Solution</button> 
+<div class="text-center"></div> 
   
 <div id="answer" class="answer hidden">
     <h2>Answer:</h2>
@@ -20,12 +20,12 @@
  
 </div>
   <p style="padding: 5px"></p>
-  <button id = "prev" class="button">&#171; Prev</button>
-  <button id = "next" class="button">Next  &#187;</button>
+  <div class="text-center"><button id = "prev" class="button">&#171; Prev</button>
+  <button id = "next" class="button">Next  &#187;</button></div>
   
 
   
-</div>
+
   
 
 <script>
