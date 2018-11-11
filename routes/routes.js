@@ -48,21 +48,20 @@ module.exports = function(app, db){
         return res.send("Error: invalid field");
         };
     
-    // Get a random document from database
-    db.collection(field).aggregate({$sample: {size: 1}}, function(err, doc){
-      
-      if (err) {return console.log(err)};
-      if (!doc){ return next("Error: invalid path")}
-      
-      // Get document by mongo id,
-      // Document ids are simultaneously questions URLS
 
-      let data = doc[0];
-      data.field = field;
-      app.set("questionData", data);
-      return res.redirect(`/questions/${field}/${doc[0]._id}`);
-    });
-    
+        db.collection(field)
+          .aggregate([{$sample: {size: 1}}], {cursor: {}})
+          .next().then((doc) => {
+
+          if (!doc){ return next("Error: invalid path")}
+            // Get document by mongo id,
+            // Document ids are simultaneously questions URLS
+      
+            let data = doc;
+            data.field = field;
+            app.set("questionData", data);
+            return res.redirect(`/questions/${field}/${data._id}`);
+          }).catch((e) => next(e));
   });
   
   // Renders random or urled question 
